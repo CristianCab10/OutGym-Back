@@ -22,7 +22,9 @@ const forgotPasswordController = async (req, res) => {
       },
     });
 
-    const resetURL = `http://localhost:5173/reset-password/${token}`;
+    
+      const resetURL = `${process.env.FRONTEND_URL}/reset-password/${token}`;
+
 
     await transporter.sendMail({
       from: process.env.GMAIL_APP_USER,
